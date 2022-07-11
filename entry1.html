@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Library</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body style="background-color: #ABC9FF;">
+  <div class="home-page">
+    <nav class="top">
+      <a href="users.html">Sign up</a>
+      <a href="index.html">Home</a>
+  </nav>
+  </div>
+  <div class="container">
+    <h1 class="text-center mt-5">Movie Library App</h1>
+    <form id="movieForm" autocomplete="off">
+      <div class="form-group">
+        <label for="Movie">Movie Name</label>
+        <input class="form-control" type="text" id="movie" placeholder="Enter the movie name">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger btn-block">
+          Search Movie
+        </button>
+      </div>
+    </form>
+    <div id="result"></div>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+    var apikey = "8e6d3ec"
+
+    $("#movieForm").submit(function(event){
+      event.preventDefault()
+
+
+      var movie = $("#movie").val()
+
+      var result = ""
+
+      var url = "http://www.omdbapi.com/?apikey="+apikey
+
+      $.ajax({
+        method:'GET',
+        url:url+"&t="+movie,
+        success:function(data){
+          console.log(data);
+
+          result = `
+          
+          <img style="float:left" class="img-thumbnail" width="200" height="200"  src="${data.Poster}"/>
+          <h2>${data.Title}</h2>
+          <h2>${data.Released}</h2>
+          <h2>${data.Runtime}</h2>
+          <h2>${data.Genre}</h2>
+          <h2>${data.Director}</h2>
+          <h2>${data.Actors}</h2>
+          
+          `
+
+          $("#result").html(result);
+        }
+      })
+
+
+    })
+  })
+</script>
+</html>

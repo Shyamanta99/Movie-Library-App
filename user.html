@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Library</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+
+        <nav class="top">
+  
+              <a href="/users/new">Sign Up</a>
+              <a href="/login">Log in</a>
+  
+        </nav>
+  
+  
+  
+  
+  
+  
+        <div class="log_form">
+  <h1>User Sign Up</h1>
+  
+  
+  <div class="sign_up">
+  <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="a54unJikX5Sd9sj7su9kl0Aqbr+HytaxHcVvsl2sb7eP3M2FeCeYa5ICn/1yhn6mQUnrbvrmHPDYkDTmLaIBPw==" />
+  
+    <label for="user_name">Name</label>
+    <input required="required" type="text" name="user[name]" id="user_name" />
+  
+    <label for="user_email">Email</label>
+    <input required="required" type="email" name="user[email]" id="user_email" />
+  
+    <label for="user_password">Password</label>
+    <input type="password" name="user[password]" id="user_password" />
+  
+    <label for="user_password_confirmation">Password confirmation</label>
+    <input type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+  
+    <input type="button" onclick="location.href='entry1.html';" value="Sign up" />
+  
+  </form></div>
+  </div>
+  
+  
+  
+      </div>
+</body>
+</html>
